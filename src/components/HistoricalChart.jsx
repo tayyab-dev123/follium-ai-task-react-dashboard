@@ -632,9 +632,9 @@ const HistoricalChart = () => {
       )}
 
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 p-5 my-6 rounded-lg shadow-md">
-          <div className="flex">
-            <div className="flex-shrink-0">
+        <div className="bg-red-50 dark:bg-red-900/30 border-l-4 border-red-500 p-4 sm:p-5 my-6 rounded-lg shadow-md">
+          <div className="flex flex-col sm:flex-row">
+            <div className="flex-shrink-0 mb-3 sm:mb-0 sm:mr-4 flex justify-center sm:justify-start">
               <svg
                 className="h-6 w-6 text-red-500"
                 xmlns="http://www.w3.org/2000/svg"
@@ -650,21 +650,21 @@ const HistoricalChart = () => {
                 />
               </svg>
             </div>
-            <div className="ml-3">
-              <p className="text-red-800 dark:text-red-200 font-medium">
+            <div className="flex-grow">
+              <p className="text-red-800 dark:text-red-200 font-medium text-center sm:text-left">
                 Error: {error}
               </p>
               {error && error.includes("premium") && (
-                <p className="text-red-700 dark:text-red-300 text-sm mt-1">
+                <p className="text-red-700 dark:text-red-300 text-sm mt-1 text-center sm:text-left">
                   The historical chart data requires a premium API subscription.
                 </p>
               )}
 
-              {/* Toggle button for mock data */}
-              <div className="mt-4 flex items-center">
+              {/* Toggle button for mock data - improved for mobile */}
+              <div className="mt-4 flex flex-col sm:flex-row items-center">
                 <button
                   onClick={handleToggleMockData}
-                  className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all
+                  className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-all w-full sm:w-auto justify-center
                     ${
                       showMockData
                         ? "bg-green-600 text-white hover:bg-green-700"
@@ -706,7 +706,7 @@ const HistoricalChart = () => {
                   </span>
                   {showMockData ? "Using Demo Data" : "Show Demo Data"}
                 </button>
-                <span className="ml-3 text-xs text-slate-600 dark:text-slate-400">
+                <span className="mt-2 sm:mt-0 sm:ml-3 text-xs text-slate-600 dark:text-slate-400 text-center sm:text-left">
                   {showMockData
                     ? "Showing sample visualization with mock data"
                     : "Click to see a demonstration with sample data"}
