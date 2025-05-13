@@ -113,6 +113,7 @@ const HistoricalChart = () => {
   } = useHistoricalData(selectedStock, timeRange, {
     enabled: !!selectedStock && !showMockData,
     refetchOnWindowFocus: false,
+    refetchInterval: 30000, // Add 30-second refetch interval for real-time updates
   });
 
   // Set error message if TanStack Query returns an error
