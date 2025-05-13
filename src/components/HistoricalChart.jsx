@@ -483,10 +483,10 @@ const HistoricalChart = () => {
   return (
     <div className="bg-white dark:bg-slate-800 rounded-xl shadow-xl p-6 backdrop-blur-sm">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-        <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-4 md:mb-0 flex items-center">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white mb-4 md:mb-0 flex items-center text-center md:text-left">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 mr-2 text-blue-600 dark:text-blue-400"
+            className="h-5 w-5 sm:h-6 sm:w-6 mr-2 text-blue-600 dark:text-blue-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -525,7 +525,7 @@ const HistoricalChart = () => {
             </button>
 
             {tooltipVisible && (
-              <div className="absolute right-14 top-10 z-20 w-72 bg-white dark:bg-slate-800 shadow-lg rounded-lg p-4 text-sm border border-slate-200 dark:border-slate-700">
+              <div className="absolute right-0 sm:right-14 top-10 z-20 w-full sm:w-72 bg-white dark:bg-slate-800 shadow-lg rounded-lg p-4 text-sm border border-slate-200 dark:border-slate-700">
                 <div className="flex justify-between items-center mb-2">
                   <h4 className="font-bold text-slate-800 dark:text-white">
                     Premium API Required
@@ -566,11 +566,11 @@ const HistoricalChart = () => {
               </div>
             )}
 
-            <div className="relative bg-slate-50 dark:bg-slate-700 rounded-lg shadow-md">
+            <div className="relative bg-slate-50 dark:bg-slate-700 rounded-lg shadow-md w-full">
               <select
                 value={timeRange}
                 onChange={handleTimeRangeChange}
-                className="appearance-none w-full md:w-64 pl-10 pr-10 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent text-slate-800 dark:text-white font-medium"
+                className="appearance-none w-full pl-10 pr-10 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-transparent text-slate-800 dark:text-white font-medium"
               >
                 {timeRanges.map((range) => (
                   <option
@@ -757,17 +757,17 @@ const HistoricalChart = () => {
         historicalData &&
         historicalData.data &&
         historicalData.data.length > 0 && (
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 p-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg group">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30 p-3 sm:p-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg group">
+              <div className="flex items-center justify-between mb-1 sm:mb-2">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
                   Current
                 </p>
-                <span className="bg-blue-200 dark:bg-blue-800 text-blue-700 dark:text-blue-200 text-xs px-2 py-1 rounded-full">
+                <span className="bg-blue-200 dark:bg-blue-800 text-blue-700 dark:text-blue-200 text-xs px-2 py-0.5 sm:py-1 rounded-full">
                   NOW
                 </span>
               </div>
-              <p className="text-xl font-bold text-blue-700 dark:text-blue-300 group-hover:scale-110 transform transition-transform duration-300">
+              <p className="text-lg sm:text-xl font-bold text-blue-700 dark:text-blue-300 group-hover:scale-110 transform transition-transform duration-300">
                 $
                 {historicalData.data.length > 0
                   ? (
@@ -776,21 +776,21 @@ const HistoricalChart = () => {
                     ).toFixed(2)
                   : "0.00"}
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 sm:mt-2">
                 Last recorded price
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 p-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg group">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 p-3 sm:p-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg group">
+              <div className="flex items-center justify-between mb-1 sm:mb-2">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
                   Highest
                 </p>
-                <span className="bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-200 text-xs px-2 py-1 rounded-full">
+                <span className="bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-200 text-xs px-2 py-0.5 sm:py-1 rounded-full">
                   MAX
                 </span>
               </div>
-              <p className="text-xl font-bold text-green-700 dark:text-green-300 group-hover:scale-110 transform transition-transform duration-300">
+              <p className="text-lg sm:text-xl font-bold text-green-700 dark:text-green-300 group-hover:scale-110 transform transition-transform duration-300">
                 $
                 {historicalData.data.length > 0
                   ? Math.max(
@@ -798,21 +798,21 @@ const HistoricalChart = () => {
                     ).toFixed(2)
                   : "0.00"}
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 sm:mt-2">
                 Highest price in period
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/30 p-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg group">
-              <div className="flex items-center justify-between mb-2">
-                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+            <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/30 dark:to-red-800/30 p-3 sm:p-4 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg group">
+              <div className="flex items-center justify-between mb-1 sm:mb-2">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
                   Lowest
                 </p>
-                <span className="bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-200 text-xs px-2 py-1 rounded-full">
+                <span className="bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-200 text-xs px-2 py-0.5 sm:py-1 rounded-full">
                   MIN
                 </span>
               </div>
-              <p className="text-xl font-bold text-red-700 dark:text-red-300 group-hover:scale-110 transform transition-transform duration-300">
+              <p className="text-lg sm:text-xl font-bold text-red-700 dark:text-red-300 group-hover:scale-110 transform transition-transform duration-300">
                 $
                 {historicalData.data.length > 0
                   ? Math.min(
@@ -820,17 +820,17 @@ const HistoricalChart = () => {
                     ).toFixed(2)
                   : "0.00"}
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 sm:mt-2">
                 Lowest price in period
               </p>
             </div>
           </div>
         )}
 
-      <div className="mt-6 flex items-center justify-center bg-slate-50 dark:bg-slate-700/30 p-3 rounded-xl text-sm text-slate-500 dark:text-slate-400">
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-center bg-slate-50 dark:bg-slate-700/30 p-3 rounded-xl text-xs sm:text-sm text-slate-500 dark:text-slate-400">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4 mr-2 text-blue-500"
+          className="h-4 w-4 mr-2 text-blue-500 hidden sm:block"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -842,19 +842,53 @@ const HistoricalChart = () => {
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <p>
+        <p className="text-center sm:text-left">
+          <span className="flex justify-center sm:hidden items-center mb-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3 mr-1 text-blue-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            Chart Information
+          </span>
           Data interval:{" "}
           <span className="font-medium">
             {historicalData?.interval || "5min"}
           </span>{" "}
-          | Last updated:{" "}
-          <span className="font-medium">{new Date().toLocaleString()}</span>{" "}
-          <span
-            className="text-blue-500 cursor-help ml-1"
+          <span className="hidden sm:inline">|</span>{" "}
+          <span className="block sm:inline mt-1 sm:mt-0">
+            Last updated:{" "}
+            <span className="font-medium">{new Date().toLocaleString()}</span>{" "}
+          </span>
+          <button
+            className="text-blue-500 cursor-help mt-1 sm:mt-0 sm:ml-1 inline-flex items-center"
             onClick={() => setTooltipVisible(!tooltipVisible)}
           >
-            ({showMockData ? "Demo Data" : "Premium API"})
-          </span>
+            <span>({showMockData ? "Demo Data" : "Premium API"})</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3 ml-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </button>
         </p>
       </div>
     </div>
